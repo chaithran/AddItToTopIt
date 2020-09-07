@@ -6,12 +6,12 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatDialogModule} from "@angular/material/dialog";
-import { DialogComponent } from './dialog/dialog.component';
+//import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogComponent
+   // DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +24,6 @@ import { DialogComponent } from './dialog/dialog.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[DialogComponent]
+  //entryComponents:[DialogComponent]
 })
 export class AppModule { }
