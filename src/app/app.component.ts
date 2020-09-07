@@ -2,7 +2,6 @@ import { Component, Injectable } from '@angular/core';
 import { HostListener } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
-import { DialogComponent } from './dialog/dialog.component';
 
 export interface Matrix {
   C0: number;
@@ -16,7 +15,8 @@ const ELEMENT_DATA: Matrix[] = [
   { C0: 1, C1: 2, C2: 0, C3: 1 },
   { C0: 1, C1: 2, C2: 0, C3: 1 },
 ];
-var test = [[1, 0, 0, 0], [4, 1, 1, 1], [1, 2, 1, 0], [2, 2, 1, 0]];
+// var test = [[, 0, 0, 0], [4, 1, 1, 1], [1, 2, 1, 0], [2, 2, 1, 0]];
+var test = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -38,7 +38,7 @@ export class AppComponent {
   openDialog() {
 
     const dialogConfig = new MatDialogConfig();
-    this.matDialog.open(DialogComponent, dialogConfig);
+    //this.matDialog.open(DialogComponent, dialogConfig);
 }
 Move(itemArray, type) {
   var temp = itemArray.data;
@@ -67,12 +67,13 @@ Move(itemArray, type) {
           }
         }
       }
-      if (dirty == false)
-        // this.openDialog();
-        alert("Game Over");
+    
       for (var i = 0; i < 4; i++)
         if (a[3][i] == 0)
           insertNew.push(i);
+       if (dirty == false && insertNew.length == 0)
+          // this.openDialog();
+          alert("Game Over");
       var item = Math.floor(Math.random() * 2) + 1;
       var pos = Math.floor(Math.random() * insertNew.length) + 1;
       a[3][insertNew[pos - 1]] = item;
@@ -98,12 +99,13 @@ Move(itemArray, type) {
           }
         }
       }
-      if (dirty == false)
-      // this.openDialog();
-       alert("Game Over");
+ 
       for (var i = 0; i < 4; i++)
         if (a[0][i] == 0)
           insertNew.push(i);
+       if (dirty == false && insertNew.length == 0)
+          // this.openDialog();
+          alert("Game Over");
       var item = Math.floor(Math.random() * 2) + 1;
       var pos = Math.floor(Math.random() * insertNew.length) + 1;
       a[0][insertNew[pos - 1]] = item;
@@ -128,12 +130,13 @@ Move(itemArray, type) {
           }
         }
       }
-      if (dirty == false)
-      // this.openDialog();
-      alert("Game Over");
+  
       for (var i = 0; i < 4; i++)
         if (a[i][0] == 0)
           insertNew.push(i);
+       if (dirty == false && insertNew.length == 0)
+          // this.openDialog();
+          alert("Game Over");
       var item = Math.floor(Math.random() * 2) + 1;
       var pos = Math.floor(Math.random() * insertNew.length) + 1;
       a[insertNew[pos - 1]][0] = item;
@@ -158,12 +161,13 @@ Move(itemArray, type) {
           }
         }
       }
-      if (dirty == false)
-      // this.openDialog();
-      alert("Game Over");
+    
       for (var i = 0; i < 4; i++)
         if (a[i][3] == 0)
           insertNew.push(i);
+       if (dirty == false && insertNew.length == 0)
+          // this.openDialog();
+          alert("Game Over");
       var item = Math.floor(Math.random() * 2) + 1;
       var pos = Math.floor(Math.random() * insertNew.length) + 1;
       a[insertNew[pos - 1]][3] = item;
