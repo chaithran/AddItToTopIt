@@ -357,7 +357,7 @@
   </div>
   <div *ngFor="let a of heroes; let i = index">
     <label  class="labelCard"  *ngFor="let item of a; let i = index" [attr.data-index]="i">
-       {{item}}
+        <span *ngIf="item!=0">{{item}} </span>
     </label>
   
   </div>
